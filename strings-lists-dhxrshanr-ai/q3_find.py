@@ -1,0 +1,28 @@
+""" Question 3: find """
+"""
+Inputs: two strings, s and t, and start index
+Output: first index in s that t appears, searching from start
+        -1 if t does not appear in s
+"""
+def starts_with(s, t, start):
+    return (t in s) and s[start:start+len(t)] == t
+
+def find(s,t,start):
+    for i in range(start,len(s)-len(t)+1):
+        if starts_with(s,t,i):
+            return i
+    return -1
+
+""" Test 3 """
+def test_find():
+    print("Testing find...", end='')
+    assert(find("Hello", "ello", 0) == 1)
+    assert(find("Hello world", "wor", 2) == 6)
+    assert(find("goodbye", "bye", 5) == -1)
+    assert(find("goodbye", "bye", 1) == 4)
+    assert(find("rainbow", "rainbow", 0) == 0)
+    assert(find("", "x", 0) == -1)
+    print("... done!")
+
+if __name__ == '__main__':
+    test_find()
