@@ -1,0 +1,64 @@
+class Person(object):
+    def __init__(self, name, date_of_birth, nationality):
+        self.name = name
+        self.date_of_birth = date_of_birth
+        self.nationality = nationality
+    
+    def change_name(self, new_name):
+        self.name = new_name
+
+    def change_nationality(self, new_nationality):
+        self.nationality = new_nationality 
+
+    def print_info(self):
+        print("Name:", self.name)
+        print("Date of birth:", self.date_of_birth)
+        print("Nationality:", self.nationality) 
+
+
+class Employee(Person):
+
+    def __init__(self, name, date_of_birth, nationality, salary):
+        super().__init__(name, date_of_birth, nationality)
+        self.salary = salary
+        self.rating = 3 
+
+    def update_rating(self, new_rating):
+        self.rating = new_rating
+
+    def update_salary(self, new_salary):
+        self.salary = new_salary
+
+    def print_info(self):
+        super().print_info()
+        print("Salary:", self.salary)
+        print("Rating:", self.rating)
+
+
+class Student(Person):
+
+    def __init__(self, name, date_of_birth, nationality, major):
+        super().__init__(name, date_of_birth, nationality)
+        self.major = major
+        self.gpa = 0 
+
+    def change_major(self, new_major):
+        self.major = new_major
+
+    def update_gpa(self, new_gpa):
+        self.gpa = new_gpa
+
+    def print_info(self):
+        super().print_info()
+        print("Major:", self.major)
+        print("GPA:", self.gpa)
+
+
+e = Employee("Bob Marley", "Feb 6, 1945", "Jamaica", 100000)
+s = Student("Ada Lovelace", "Dec 10, 1815", "England", "Computer Science")
+e.print_info()
+print()
+s.print_info()
+print()
+s.change_name("Ada Lovelace, the first ever programmer.")
+s.print_info()
